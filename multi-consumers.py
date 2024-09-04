@@ -1,17 +1,18 @@
-from kafka import KafkaConsumer
 import json
 import sys
+
+from kafka import KafkaConsumer
 
 
 # Configuration for Kafka Consumer
 def create_consumer(group_id):
     return KafkaConsumer(
-        'user-logs',  # Kafka topic to consume messages from
-        bootstrap_servers='localhost:9092',  # Kafka broker address
-        auto_offset_reset='earliest',  # Start reading from the earliest messages
-        group_id=group_id,  # Consumer group ID
-        value_deserializer=lambda x: json.loads(x.decode('utf-8')),  # Deserialize JSON messages
-        key_deserializer=lambda x: x.decode('utf-8')  # Deserialize keys
+        'user-logs',
+        bootstrap_servers='localhost:9092',
+        auto_offset_reset='earliest',
+        group_id=group_id,
+        value_deserializer=lambda x: json.loads(x.decode('utf-8')),
+        key_deserializer=lambda x: x.decode('utf-8')
     )
 
 
