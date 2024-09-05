@@ -30,6 +30,6 @@ def produce_messages(topic, records_number):
 
 
 if __name__ == "__main__":
-    topic = 'user-logs'  # Kafka topic to send messages to
-    records_number=500
+    topic = 'test-topic'  # Kafka topic to send messages to
+    records_number=5
     produce_messages(topic,records_number)
